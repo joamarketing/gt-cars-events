@@ -1,14 +1,43 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const modalVideoRef = useRef<HTMLVideoElement>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.playbackRate = 0.85;
     }
+  }, []);
+
+  function openModal() {
+    setModalOpen(true);
+    // Small delay so the video element is mounted
+    setTimeout(() => {
+      if (modalVideoRef.current) {
+        modalVideoRef.current.play();
+      }
+    }, 100);
+  }
+
+  function closeModal() {
+    setModalOpen(false);
+    if (modalVideoRef.current) {
+      modalVideoRef.current.pause();
+      modalVideoRef.current.currentTime = 0;
+    }
+  }
+
+  // Close on Escape
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") closeModal();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   return (
@@ -34,7 +63,11 @@ export default function HeroSection() {
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         {/* Eyebrow */}
         <p className="text-[10px] md:text-[11px] tracking-[0.5em] uppercase text-gold mb-8 fade-in-up">
-          13 September 2026 &nbsp;·&nbsp; Exclusief Rijdevenement
+          13 September 2026
+          <br className="sm:hidden" />
+          <span className="hidden sm:inline"> &nbsp;·&nbsp; </span>
+          <br className="sm:hidden" />
+          Exclusief Rijdevenement
         </p>
 
         {/* Main title */}
@@ -103,6 +136,15 @@ export default function HeroSection() {
           >
             Schrijf je in
           </a>
+          <button
+            onClick={openModal}
+            className="btn-gold flex items-center justify-center gap-3 px-10 py-4 border border-gold/60 text-gold text-[11px] tracking-[0.35em] uppercase hover:border-gold hover:text-gold-light transition-all duration-300 min-w-[200px]"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+              <polygon points="2,1 13,7 2,13" />
+            </svg>
+            After Movie
+          </button>
           <a
             href="#event"
             className="btn-gold px-10 py-4 border border-gold/60 text-gold text-[11px] tracking-[0.35em] uppercase hover:border-gold hover:text-gold-light transition-all duration-300 min-w-[200px]"
@@ -111,6 +153,34 @@ export default function HeroSection() {
           </a>
         </div>
       </div>
+
+      {/* After Movie modal */}
+      {modalOpen && (
+        <div
+          className="fixed inset-0 z-[100] bg-obsidian/95 flex items-center justify-center"
+          onClick={closeModal}
+        >
+          <button
+            className="absolute top-5 right-5 text-gold hover:text-gold-light transition-colors p-2"
+            onClick={closeModal}
+            aria-label="Sluiten"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+          <video
+            ref={modalVideoRef}
+            controls
+            playsInline
+            className="w-full max-w-5xl max-h-[90vh] outline-none"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
+        </div>
+      )}
 
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">

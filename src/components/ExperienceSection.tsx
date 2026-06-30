@@ -20,7 +20,8 @@ export default function ExperienceSection() {
             className="font-display text-4xl md:text-5xl font-bold text-ivory leading-tight"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
-            Meer dan rijden —{" "}
+            Meer dan rijden —
+            <br />
             <span
               className="italic text-gold"
               style={{ fontFamily: "var(--font-playfair)" }}
