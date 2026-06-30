@@ -15,7 +15,6 @@ export default function Navigation() {
   const navLinks = [
     { label: "Het Event", href: "#event" },
     { label: "Ervaring", href: "#experience" },
-    { label: "De Wagens", href: "#cars" },
     { label: "Inschrijven", href: "#register" },
   ];
 
@@ -27,7 +26,7 @@ export default function Navigation() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16 flex items-center justify-between h-20">
         {/* Logo */}
         <a href="#" className="flex flex-col leading-none group">
           <span
