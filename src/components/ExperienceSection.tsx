@@ -35,14 +35,14 @@ export default function ExperienceSection() {
           {[
             {
               tag: "Dag Programma",
-              title: "Van zonsopgang tot gala",
-              body: "Begin de dag met een luxueus onthaal en barista-koffie. Daarna volgt een programma vol actie: instructie-ronden, vrije rit en spectaculaire fotomomenten op iconische locaties. Sluit af met een exclusief diner.",
+              title: "Van zonsopgang tot gala!",
+              body: "Een unieke startplaats op de Markt van Bilzen waar u van een heerlijk ontbijtbuffet kunt genieten. Daarna rijden we via kronkelende wegen naar een lekkere warme lunch aan het meer van Butchenbach. Daarna geniet u van de mooie natuur en wegen onderweg naar de eindbestemming waar een luxe BBQ in een super mooie locatie — voormalige 2 Michelin Ster kasteelhoeve Clos St Denis Kortessem — op u staat te wachten, samen met een unieke beleving voor de dames.",
               align: "left",
             },
             {
-              tag: "Begeleiding",
-              title: "Professionele instructeurs",
-              body: "Onze gecertificeerde rijinstructeurs begeleiden je veilig maar vol spanning. Of je nu een doorgewinterde rijder bent of voor het eerst in een supersportwagen stapt — wij zorgen voor een onvergetelijke beleving.",
+              tag: "Wie zijn wij?",
+              title: "Gepassioneerde autoliefhebbers",
+              body: "Wij zijn sportautoliefhebbers die gepassioneerd zijn en graag organiseren. Doordat ik 40 jaar gefietst heb, ken ik zo goed als alle wegen in Limburg, NL Limburg, de Oostkantons en Wallonië — waardoor ik de mooiste wegen ken zonder flitspalen, trajectcontrole en vluchtheuvels.",
               align: "right",
             },
             {
