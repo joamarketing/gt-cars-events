@@ -35,15 +35,7 @@ export default function CountdownSection() {
   ];
 
   return (
-    <section id="countdown" className="bg-charcoal relative overflow-hidden py-20 md:py-28">
-      {/* Background texture lines */}
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(90deg, #C9A056 0px, #C9A056 1px, transparent 1px, transparent 80px)",
-        }}
-      />
+    <section id="countdown" className="relative overflow-hidden py-20 md:py-28" style={{ backgroundColor: "#1e1e1e" }}>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 text-center">
         {/* Label */}
